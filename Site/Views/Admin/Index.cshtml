@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Site.Models.UserViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All registered users</h2>
+<a href="@Url.Action("Create","Admin")"><div class="btn btn-success">New Member</div></a>
+<br />
+<br />
+
+<table class="table table-striped">
+    <tr class="success">
+        <th>
+            @Html.DisplayNameFor(model => model.Login)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th>
+            @Html.DisplayName("Action")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit","Admin",new { id = item.Id })"><div class="btn btn-success">Edit</div></a> &nbsp;
+                <a href="@Url.Action("Delete","Admin",new { id = item.Id })"><div class="btn btn-success">Delete</div></a>
+            </td>
+
+        </tr>
+    }
+
+</table>

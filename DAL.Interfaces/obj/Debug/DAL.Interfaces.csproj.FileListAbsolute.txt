@@ -1,0 +1,10 @@
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\DAL.Interfaces\bin\Debug\DAL.Interfaces.dll.config
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\DAL.Interfaces\bin\Debug\DAL.Interfaces.dll
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\DAL.Interfaces\bin\Debug\DAL.Interfaces.pdb
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\DAL.Interfaces\bin\Debug\EntityFramework.dll
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\DAL.Interfaces\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\DAL.Interfaces\bin\Debug\EntityFramework.xml
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\DAL.Interfaces\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\DAL.Interfaces\obj\Debug\DAL.Interfaces.dll
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\DAL.Interfaces\obj\Debug\DAL.Interfaces.pdb
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\DAL.Interfaces\obj\Debug\DAL.Interfaces.csprojResolveAssemblyReference.cache

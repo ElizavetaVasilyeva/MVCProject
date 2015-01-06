@@ -1,0 +1,35 @@
+﻿@model Site.Models.AlbumViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Create Album</h1>
+            <p>Album Title:</p>
+            @Html.EditorFor(model => model.Name)
+            <div class="red">
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <br>
+            <p>Description:</p>
+            @Html.EditorFor(model => model.Description)
+            <div class="red">
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+            <br>
+            <input type="submit" class="btn btn-success btn-lg" value="Create" />
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

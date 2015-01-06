@@ -1,0 +1,45 @@
+﻿@model Site.Models.PhotoViewModel
+
+@{
+    ViewBag.Title = "EditPhoto";
+}
+<html>
+    <head>
+        <title></title>
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    </head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+          <div class="container">
+            <div class="jumbotron">
+                <h1>Edit Photo</h1>
+                <img src="@Model.Image" width="200" height="200" />
+                <p>Photo Title:</p>
+                @Html.EditorFor(model => model.Name)
+                <div class="red">
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+                <p>Description:</p>
+                    @Html.EditorFor(model => model.Description)
+                <div class="red">
+                    @Html.ValidationMessageFor(model => model.Description)
+                </div>
+                <br />
+                <input type="submit" class="btn btn-success btn-lg" value="Save" />
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

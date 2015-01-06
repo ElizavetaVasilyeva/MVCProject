@@ -1,0 +1,52 @@
+body { 
+ background: url(../Img/fresh_snow.png) no-repeat center center fixed; 
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+}
+
+body a{
+text-decoration: none !important;
+}
+
+.container {
+    max-width: 1000px !important;
+}
+
+.red {
+    color: #ff0000 !important;
+}
+
+.navbar-text {
+    color: black !important;
+}
+
+.small {
+    color: #808080;
+}
+
+.caption a {
+    color: black;
+}
+
+.panel {
+    margin: 0 -100% 0 100%;
+}
+
+.panel-default {
+ opacity: 0.9;
+ margin-top:30px;
+}
+
+.form-group.last {
+ margin-bottom:0px;
+}
+
+
+
+
+
+
+
+

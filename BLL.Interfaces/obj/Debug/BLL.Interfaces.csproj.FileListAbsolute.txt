@@ -1,0 +1,5 @@
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\BLL.Interfaces\bin\Debug\BLL.Interfaces.dll
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\BLL.Interfaces\bin\Debug\BLL.Interfaces.pdb
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\BLL.Interfaces\obj\Debug\BLL.Interfaces.dll
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\BLL.Interfaces\obj\Debug\BLL.Interfaces.pdb
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\BLL.Interfaces\obj\Debug\BLL.Interfaces.csprojResolveAssemblyReference.cache

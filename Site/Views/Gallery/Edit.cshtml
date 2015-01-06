@@ -1,0 +1,43 @@
+﻿@model Site.Models.AlbumViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+
+    <head>
+        <title></title>
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet"/>
+        <link href="../Content/style.css" rel="stylesheet" />
+    </head>
+
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Edit Album</h1>
+                <p>Album Title:</p>
+                @Html.EditorFor(model => model.Name)
+                <div class="red">
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+                <p>Description:</p>
+                    @Html.EditorFor(model => model.Description)
+                <div class="red">
+                    @Html.ValidationMessageFor(model => model.Description)
+                </div>
+                <input type="submit" class="btn btn-success btn-lg" value="Save" />
+            </div>
+        </div>
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

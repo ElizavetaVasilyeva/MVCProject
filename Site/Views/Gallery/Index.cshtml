@@ -1,0 +1,34 @@
+﻿@using System.Globalization
+@model IEnumerable<Site.Models.AlbumViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@if (System.Web.HttpContext.Current.User.Identity.Name == ViewBag.Login)
+ {
+     <a href="@Url.Action("Create", "Gallery")"><div class="btn btn-success"><i class="fa fa-plus-circle"></i> Add Album</div></a>
+ }
+
+@if (Model != null)
+{
+    <div class="row" style="margin-top:15px;">
+        @foreach (var item in Model)
+        {
+            <div class="col-xs-6 col-md-3">
+                @item.Name &nbsp;
+                @if (System.Web.HttpContext.Current.User.Identity.Name == ViewBag.Login)
+                {
+                    <a href="@Url.Action("Edit", "Gallery", new {id = item.Id})"><i class="fa fa-pencil-square-o"></i></a>
+                    <a href="@Url.Action("Delete", "Gallery", new {id = item.Id})"><i class="fa fa-trash"></i></a>
+                }
+                <br>
+                <a href="@Url.Action("Album", "Gallery", new { name = item.Name })"><i class="fa fa-folder fa-5x"></i></a>
+                <div class="small">
+                    @item.CreatedDate.Date.ToString("d", CultureInfo.InvariantCulture)
+                </div>
+            </div>
+        }
+    </div>
+}

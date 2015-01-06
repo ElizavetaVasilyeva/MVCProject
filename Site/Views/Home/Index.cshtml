@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Site.Models.PhotoViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model != null)
+{
+    <div class="row">
+    @foreach (var photo in Model)
+        {
+        <div class="col-xs-6 col-md-3">
+            <a href="@Url.Action("ShowPhoto", "Gallery", new {id = photo.Id})" class="thumbnail"><img src="@photo.Image" style="width:171px !important; height: 180px !important;" /></a>
+            </div>
+    }
+    </div>
+}
+else
+{
+    { <div><h3>Photos with this tag not found!</h3></div>}
+}

@@ -1,0 +1,21 @@
+﻿@model Site.Models.ProfileViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Profile @Html.DisplayFor(model => model.FirstName)<a href="@Url.Action("Index","Gallery",new{name=ViewBag.Login})">&nbsp;<i class="fa fa-folder"> </i></a></h1>
+        <div class="small">Last update: @Html.DisplayFor(model => model.LastUpdateDate)</div>
+        <br>
+        <p>Last Name: @Html.DisplayFor(model => model.LastName)</p>
+        <p>Age: @Html.DisplayFor(model => model.Age)</p>
+        <p>Email: @Html.DisplayFor(model => model.Email)</p>
+        <p>Homecountry: @Html.DisplayFor(model => model.Country)</p>
+        <p>City: @Html.DisplayFor(model => model.City)</p>
+        <p>Mobile: @Html.DisplayFor(model => model.PhoneNumber)</p>
+        <p>About me: @Html.DisplayFor(model => model.AboutYourself)</p>
+        <p>My interests: @Html.DisplayFor(model => model.Interests)</p>
+    </div>
+</div>

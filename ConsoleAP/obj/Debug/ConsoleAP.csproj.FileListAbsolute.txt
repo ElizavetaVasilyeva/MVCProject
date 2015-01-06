@@ -1,0 +1,16 @@
+c:\users\sony\documents\visual studio 2013\Projects\ImageGallery\ConsoleAP\bin\Debug\ConsoleAP.exe.config
+c:\users\sony\documents\visual studio 2013\Projects\ImageGallery\ConsoleAP\bin\Debug\ConsoleAP.exe
+c:\users\sony\documents\visual studio 2013\Projects\ImageGallery\ConsoleAP\bin\Debug\ConsoleAP.pdb
+c:\users\sony\documents\visual studio 2013\Projects\ImageGallery\ConsoleAP\bin\Debug\EntityFramework.dll
+c:\users\sony\documents\visual studio 2013\Projects\ImageGallery\ConsoleAP\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\sony\documents\visual studio 2013\Projects\ImageGallery\ConsoleAP\bin\Debug\ORM.dll
+c:\users\sony\documents\visual studio 2013\Projects\ImageGallery\ConsoleAP\bin\Debug\ORM.pdb
+c:\users\sony\documents\visual studio 2013\Projects\ImageGallery\ConsoleAP\bin\Debug\EntityFramework.xml
+c:\users\sony\documents\visual studio 2013\Projects\ImageGallery\ConsoleAP\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\sony\documents\visual studio 2013\Projects\ImageGallery\ConsoleAP\obj\Debug\ConsoleAP.csprojResolveAssemblyReference.cache
+c:\users\sony\documents\visual studio 2013\Projects\ImageGallery\ConsoleAP\obj\Debug\ConsoleAP.exe
+c:\users\sony\documents\visual studio 2013\Projects\ImageGallery\ConsoleAP\obj\Debug\ConsoleAP.pdb
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\ConsoleAP\bin\Debug\Ninject.dll
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\ConsoleAP\bin\Debug\Ninject.xml
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\ConsoleAP\bin\Debug\BLL.Interfaces.dll
+C:\Users\Sony\Documents\Visual Studio 2013\Projects\ImageGallery\ConsoleAP\bin\Debug\BLL.Interfaces.pdb

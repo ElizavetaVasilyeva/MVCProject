@@ -1,0 +1,53 @@
+﻿@model Site.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+<html>
+<head>
+    <title></title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet"/>
+</head>
+    <body>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+     <div class="container">
+            <div class="jumbotron">
+                <h1>Edit User</h1>
+                <p>Login:</p>
+                @Html.EditorFor(model => model.Login, Model.Login)
+                <div class="red">
+                    @Html.ValidationMessageFor(model => model.Login)
+                </div>
+                <p>Email:</p>
+                @Html.EditorFor(model => model.Email)
+                <div class="red">
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+                <p>Role:</p>
+                    @Html.DropDownListFor(model => model.Role,new List<SelectListItem>(){new SelectListItem(){ Text = "Admin"},new SelectListItem(){ Text = "User"}})
+                <div class="red">
+                    @Html.ValidationMessageFor(model => model.Role)
+                </div>
+                <br>
+                <p>
+                    <input type="submit" class="btn btn-lg btn-default" value="Save" />
+                </p>
+                </div>
+        </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

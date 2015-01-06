@@ -1,0 +1,187 @@
+﻿@using System.Web.UI.WebControls
+@model Site.Models.CommentModel
+
+@{
+    ViewBag.Title = "ShowPhoto";
+    bool pt = false;
+}
+<html>
+<head>
+    <title></title>
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/style.css" rel="stylesheet" />
+    <link href="/Content/font-awesome.css" rel='stylesheet' />
+</head>
+<body>
+    <div align="center">
+        <img  id="img_container" src="@Model.Image"/>
+        <br />
+        <div class="small" style="float:right;">posted by <a href="@Url.Action("Index","Profile",new{name=Model.PhotoUser})">@Model.PhotoUser</a>: @Model.CreatedDatePhoto</div>
+        <br />
+        @if (Model.Description != null)
+        {
+            <h3>
+                Description:
+                @Model.Description
+            </h3>
+        }
+        @if (ViewBag.Likes != null)
+        {
+            foreach (var like in ViewBag.Likes)
+            {
+                if (like.UserName == System.Web.HttpContext.Current.User.Identity.Name)
+                {
+                    pt = true;
+                }
+            }
+        }
+        @if (pt == false && System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+        {
+            <p>
+                <div class="btn btn-success" id="likebtn"><i class="fa fa-heart-o fa-2x"> </i></div>
+            </p>
+        }
+
+        <div id="likes">
+            <h3>
+                Likes:
+            </h3>
+            @if (ViewBag.Likes != null)
+            {
+                foreach (var like in ViewBag.Likes)
+                {
+                    <text>@like.UserName,</text>
+                }
+            }
+        </div>
+
+    </div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description,new{id="Description"})
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreatedDatePhoto, new { id = "CreatedDatePhoto" })
+            @Html.ValidationMessageFor(model => model.CreatedDatePhoto)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Image,new{id="Image"})
+            @Html.ValidationMessageFor(model => model.Image)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdPhoto, new { id = "IdPhoto" })
+            @Html.ValidationMessageFor(model => model.IdPhoto)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CurrentUserName, new { id = "CurrentUserName" })
+            @Html.ValidationMessageFor(model => model.CurrentUserName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PhotoUser, new { id = "PhotoUser" })
+            @Html.ValidationMessageFor(model => model.PhotoUser)
+        </div>
+
+
+        <div class="container">
+            <div class="jumbotron">
+                @if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    <h3>Comments</h3>
+                    <br>
+                    @Html.TextAreaFor(model => model.Text,new{id="Text", @rows="5",@cols="100"})
+                    <div class="red">
+                        @Html.ValidationMessageFor(model => model.Text)
+                    </div>
+                    <p>
+                        <input type="submit" id="submitButton" class="btn btn-success btn-lg" value="Save" />
+                    </p>
+                    <br>
+                }
+              
+                <div id="list">
+                    @if (ViewBag.Comments != null)
+                    {
+                        foreach (var comment in ViewBag.Comments)
+                         {
+                             <li>Comment: @comment.Text posted by @comment.UserName</li>
+                         }
+                    }
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+    <script src="/Scripts/jquery-1.8.2.js"></script>
+    <script src="/Scripts/jquery-1.8.2.min.js"></script>
+
+    <script type="text/javascript">
+        $("form").submit(function (formData) {
+            $.ajax({
+                url: '/Gallery/ShowPhoto',
+                settings: {
+                    type: 'POST'
+                },
+                type: 'POST',
+                data: {
+                    'text': $('#Text').val(),
+                    'idphoto': $('#IdPhoto').val(),
+                    'currentusername': $('#CurrentUserName').val(),
+                    'photouser': $('#PhotoUser').val()
+                    
+                }
+            }).done(function (data) {
+                $('#list').append("<li> Comment: " + data.Text + " posted by " + data.CurrentUserName + "</li>");
+            }
+            );
+            return false;
+        });
+
+        $('#likebtn').click(function () {
+            $.ajax({
+                url: '/Gallery/Like',
+                settings: {
+                    type: 'POST'
+                },
+                type: 'POST',
+                data: {
+                    'idphoto': $('#IdPhoto').val(),
+                    'currentusername':$('#CurrentUserName').val(),
+
+                }
+            }).done(function (data) {
+                $('#likes').append("<text>" + data.CurrentUserName + ", </text");
+            }
+            );
+            $(this).hide();
+            return false;
+        });
+
+            $('img').each(function(){
+                var needWidth = 1024;
+                var needHeight = 768;
+                var obj = $(this);
+                var imageOrientation = ((obj.height()>obj.width())?'vertical':'horizontal');
+                if (imageOrientation == 'vertical')
+                {
+                    if (obj.height()>needHeight) obj.css('height',needHeight);
+                }
+            else
+                 if (obj.width()>needWidth) obj.css('width',needWidth);
+            });
+
+    </script>
+    <script type="text/javascript" src="/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

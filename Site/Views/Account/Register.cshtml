@@ -1,0 +1,102 @@
+﻿@model Site.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+     <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <strong class="">Register</strong>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="inputLogin3" class="col-sm-3 control-label">Login</label>
+                                <div class="col-sm-9">
+                                    @Html.EditorFor(model => model.Login)
+                                    <br>
+                                    <div class="red">
+                                        @Html.ValidationMessageFor(model => model.Login)
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                                <div class="col-sm-9">
+                                    @Html.EditorFor(model => model.Email)
+                                    <br>
+                                    <div class="red">
+                                        @Html.ValidationMessageFor(model => model.Email)
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+                                <div class="col-sm-9">
+                                    @Html.EditorFor(model => model.Password)
+                                    <br>
+                                    <div class="red">
+                                        @Html.ValidationMessageFor(model => model.Password)
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br/>
+                            <div class="form-group">
+                                <label for="inputConfirmPassword3" class="col-sm-3 control-label">Confirm password</label>
+                                <div class="col-sm-9">
+                                    @Html.EditorFor(model => model.ConfirmPassword)
+                                    <br>
+                                    <div class="red">
+                                        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br />
+                            <div class="form-group">
+                                <label for="inputCaptcha" class="col-sm-3 control-label">Captcha</label>
+                                <div class="col-sm-9">
+                                    <img src="@Url.Action("Captcha", "Account")" alt="captcha" /><br>
+                                </div>
+                            </div>
+                            <br>
+                            <br/>
+                            <div class="form-group">
+                                <label for="inputCaptcha3" class="col-sm-3 control-label">Enter Captcha</label>
+                                <div class="col-sm-9">
+                                    @Html.EditorFor(model => model.Captcha)
+                                    <br>
+                                    <br/>
+                                    <div class="red">
+                                        @Html.ValidationMessageFor(model => model.Captcha)
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group last">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <input type="submit" class="btn btn-success btn-sm" value="Register" />
+                                    <button type="reset" class="btn btn-default btn-sm">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
