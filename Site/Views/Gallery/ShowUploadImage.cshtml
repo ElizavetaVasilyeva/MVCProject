@@ -1,17 +1,24 @@
-﻿@model string[,]
+﻿@model IEnumerable<Site.Models.PhotoViewModel>
 @{
     ViewBag.Title = "ShowUploadImage";
 }
 
-<ul>
-    @for (int i=0;i<Model.Length;i++)
+    @foreach (var photo in Model)
     {
-        <li>
-            <a href="#"><img src="@Model[i,0]" alt="" /></a>
-            <div class="image-hover">
-                <h6>@Model[i, 1]</h6>
-                <a href="#" class="preview">Preview image</a>
+        <div class="col-xs-6 col-md-3">
+            <div class="thumbnail">
+                <a href="@Url.Action("ShowPhoto","Gallery",new{id=photo.Id})"><img src="@photo.Image" style="width:171px !important; height: 180px !important;" /></a>
+                <div class="caption">
+                    <div class="link-caption">
+                        @if (HttpContext.Current.User.Identity.Name == ViewBag.Login)
+                        {
+                            <p>
+                                <a href="@Url.Action("EditPhoto", "Gallery", new {id = photo.Id})"><div class="btn btn-success">Edit</div></a>
+                                <a href="@Url.Action("DeletePhoto", "Gallery", new {id = photo.Id})"><div class="btn btn-danger">Delete</div></a>
+                            </p>
+                        }
+                    </div>
+                </div>
             </div>
-        </li>
+        </div>
     }
-</ul>

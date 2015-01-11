@@ -18,7 +18,7 @@ namespace DependencyResolver
 
         public override void Load()
         {
-            Bind<DbContext>().To<SiteModel>().InSingletonScope();
+            Bind<DbContext>().To<SiteModel>().InThreadScope();
             Bind<IUserRepository>().To<UserRepository>();
             Bind<IProfileRepository>().To<ProfileRepository>();
             Bind<IAlbumRepository>().To<AlbumRepository>();

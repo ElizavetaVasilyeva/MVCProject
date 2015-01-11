@@ -2,6 +2,12 @@
 
 @{
     ViewBag.Title = "Edit";
+    var CountryItems = new List<SelectListItem>();
+    CountryItems.Add(new SelectListItem() { Text = String.Empty, Value = String.Empty });
+    foreach (var name in ViewBag.Countries)
+    {
+        CountryItems.Add(new SelectListItem() { Text = name, Value = name });
+    }  
 }
 
     @using (Html.BeginForm())
@@ -33,7 +39,7 @@
                     @Html.ValidationMessageFor(model => model.Email)
                 </div>
                 <p>Homecountry:</p>
-                    @Html.EditorFor(model => model.Country)
+                    @Html.DropDownListFor(model => model.Country,CountryItems)
                 <div class="red">
                     @Html.ValidationMessageFor(model => model.Country)
                 </div>

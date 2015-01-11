@@ -20,15 +20,20 @@ namespace Site.Controllers
         }
         public ActionResult Index(string name)
         {
-            int idUser;
+            UserEntity user;
             ProfileEntity profile;
             try
             {
-                idUser = userService.GetUserByLogin(name).Id;
-                profile = userService.GetProfileUser(idUser);
+                user = userService.GetUserByLogin(name);
+                profile = userService.GetProfileUser(user.Id);     
             }
             catch (ProfileNotFoundException)
             {
+                if (!System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    user = userService.GetUserByLogin(name);
+                    return RedirectToAction("Index", "Gallery",new{name=user.Login});
+                }
                 return RedirectToAction("Create", "Profile");
             }
             catch (Exception)
@@ -57,6 +62,7 @@ namespace Site.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.Countries = CountryModel.GetCountries();
             return View();
         }
 
@@ -128,6 +134,7 @@ namespace Site.Controllers
                 Interests = profile.Interests,
                 LastUpdateDate = profile.LastUpdateDate,
             };
+            ViewBag.Countries = CountryModel.GetCountries();
             return View(newProfile);
         }
 

@@ -251,7 +251,7 @@ namespace DAL.Concrete
         {
             try
             {
-                var photos = context.Set<Photo>().Select(photo => photo).Take(12).ToList();
+                var photos = context.Set<Photo>().Select(photo => photo).Take(14).ToList();
                 if (photos.Count == 0) return null;
                 return photos.Select(photo => photo.ToDllPhoto());
             }
