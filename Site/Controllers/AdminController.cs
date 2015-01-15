@@ -69,7 +69,7 @@ namespace Site.Controllers
             bool anyUser;
             try
             {
-                anyUser = userService.GetAllUsers().Any(u => u.Login.Contains(user.Login));
+                anyUser = userService.GetAllUsers().Any(u => u.Login==user.Login);
             }
             catch (Exception)
             {

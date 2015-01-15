@@ -29,7 +29,7 @@ namespace Site.Controllers
             }
             catch (ProfileNotFoundException)
             {
-                if (!System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+                if (!System.Web.HttpContext.Current.User.Identity.IsAuthenticated || System.Web.HttpContext.Current.User.Identity.Name!=name)
                 {
                     user = userService.GetUserByLogin(name);
                     return RedirectToAction("Index", "Gallery",new{name=user.Login});

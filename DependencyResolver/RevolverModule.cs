@@ -9,6 +9,7 @@ using BLL.Services;
 using DAL.Concrete;
 using DAL.Interfaces.Repository;
 using Ninject.Modules;
+using Ninject.Web.Common;
 using ORM;
 
 namespace DependencyResolver
@@ -18,12 +19,12 @@ namespace DependencyResolver
 
         public override void Load()
         {
-            Bind<DbContext>().To<SiteModel>().InThreadScope();
+            Bind<DbContext>().To<SiteModel>().InSingletonScope();
+            Bind<IUnitOfWork>().To<UnitOfWork>();
             Bind<IUserRepository>().To<UserRepository>();
             Bind<IProfileRepository>().To<ProfileRepository>();
             Bind<IAlbumRepository>().To<AlbumRepository>();
             Bind<IPhotoRepository>().To<PhotoRepository>();
-            Bind<IUnitOfWork>().To<UnitOfWork>();
             Bind<IUserService>().To<UserService>();
             Bind<IAlbumService>().To<AlbumService>();
         }

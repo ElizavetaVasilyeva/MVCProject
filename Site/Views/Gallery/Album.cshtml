@@ -1,15 +1,16 @@
 ﻿@model IEnumerable<Site.Models.PhotoViewModel>
 @{
     ViewBag.Title = "Album";
+    //Layout = "/Views/Shared/_Layout.cshtml";
 }
-<html>
+@*<html>
 <head>
     <title></title>
     <link href="/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="/Content/style.css" rel="stylesheet" />
     <link href="/Content/font-awesome.css" rel='stylesheet' />
 </head>
-<body>
+<body>*@
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -74,8 +75,8 @@
             <br />
             <br />
     </div>
-    <script src="/Scripts/jquery-1.8.2.js"></script>
-    <script src="/Scripts/jquery-1.8.2.min.js"></script>
+    @*<script src="/Scripts/jquery-1.8.2.js"></script>*@
+    @*<script src="/Scripts/jquery-1.8.2.min.js"></script>*@
 
     <script type="text/javascript">
         $('#btnaddphoto').click(function () {
@@ -87,6 +88,6 @@
             $('#loading').show();
         }
     </script>
-    <script src="/Scripts/bootstrap.min.js" type="text/javascript"></script>
-    </body>
-</html>
+    @*<script src="/Scripts/bootstrap.min.js" type="text/javascript"></script>*@
+    @*</body>
+</html>*@
