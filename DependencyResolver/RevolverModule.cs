@@ -11,7 +11,7 @@ using DAL.Interfaces.Repository;
 using Ninject.Modules;
 using Ninject.Web.Common;
 using ORM;
-
+//DependencyResolver
 namespace DependencyResolver
 {
     public class RevolverModule:NinjectModule
